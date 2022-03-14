@@ -13,7 +13,13 @@ pipeline {
            sh 'terraform plan > one.txt'
         }
     }
-        
+        stage('cd ..') {
+        steps {
+           sh 'cd ..'
+           sh 'rm -rf terraform_buckets'
+    
+        }
+    }   
         
     }
 }
