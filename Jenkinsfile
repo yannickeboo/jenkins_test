@@ -22,7 +22,7 @@ pipeline {
         stage('cd ..') {
         steps {
            sh 'cd ..'
-           sh 'rm -rf terraform_buckets'
+           sh 'cd ..'
     
         }
     }   
