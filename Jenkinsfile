@@ -38,8 +38,8 @@ pipeline {
     }
         stage('slack upload file') {
         steps {
-           
-           slackUploadFile filePath: "/var/jenkins_home/workspace/test42/test1-$BUILDVERSION", initialComment:  "HEY HEY"    
+          slackUploadFile filePath: "/var/jenkins_home/workspace/test42/test1-$BUILDVERSION", initialComment:  "HEY HEY" 
+        }       
     }
         stage('delete text') {
         steps {
@@ -47,6 +47,7 @@ pipeline {
            sh 'rm -rf /var/jenkins_home/workspace/test42/test1-$BUILDVERSION' 
         }
     }
+
     }  
         
 }
