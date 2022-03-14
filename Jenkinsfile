@@ -4,7 +4,7 @@ pipeline {
         terraform 'terraform'
     } 
     environment {
-        def BUILDVERSION = sh(script: "echo `date +%s`")
+        def BUILDVERSION = sh(returnStdout: true, script: 'date +%Y-%m-%d').trim()
     }
 
     stages {
