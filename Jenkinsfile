@@ -9,8 +9,7 @@ pipeline {
         stage('cd') {
         steps {
            sh 'cd terraform_buckets'
-           sh 'terraform init'
-           sh 'terraform plan > one.txt'
+           sh 'pwd'
         }
     }
         stage('cd ..') {
