@@ -45,7 +45,7 @@ pipeline {
     }
         stage('delete text') {
         steps {
-           
+           sh 'echo'
             
         }
     }
