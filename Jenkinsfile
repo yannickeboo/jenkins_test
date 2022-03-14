@@ -46,7 +46,7 @@ pipeline {
         stage('delete text') {
         steps {
            
-           sh 'rm -rf /var/jenkins_home/workspace/test42/test1-$BUILDVERSION.txt' 
+           sh 'rm -rf /var/jenkins_home/workspace/test42/test2-*' 
         }
     }
 
