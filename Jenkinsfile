@@ -36,7 +36,18 @@ pipeline {
            sh 'cat /var/jenkins_home/workspace/test42/Refresh-terraform-file-$BUILDVERSION'
         }
     }
-
+        stage('slack upload file') {
+        steps {
+           
+           slackUploadFile filePath: '/var/jenkins_home/workspace/test42/Refresh-terraform-file-$BUILDVERSION' , initialComment: 'Here is the drift'
+        }
+    }
+        stage('delete text') {
+        steps {
+           
+           sh '/var/jenkins_home/workspace/test42/Refresh-terraform-file-$BUILDVERSION' 
+        }
+    }
     }  
         
 }
