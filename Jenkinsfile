@@ -3,6 +3,9 @@ pipeline {
     tools {
         terraform 'terraform'
     } 
+    environment {
+        def BUILDVERSION = sh(script: "echo `date +%s`", returnStdout: true).trim()
+    }
 
     stages {
         stage('Checkout code') {
@@ -21,7 +24,7 @@ pipeline {
                sh 'pwd'
                
                sh label: '',script: 'terraform init'
-               sh label: '',script: 'terraform refresh > /var/jenkins_home/workspace/test42/test1'
+               sh label: '',script: 'terraform refresh > /var/jenkins_home/workspace/test42/test1-$BUILDVERSION'
                
                }
         }
