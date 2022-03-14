@@ -21,7 +21,7 @@ pipeline {
                sh 'pwd'
                
                sh label: '',script: 'terraform init'
-               sh label: '',script: 'terraform plan > test1'
+               sh label: '',script: 'terraform plan -out=test1'
                sh 'cat test1'
                }
         }
