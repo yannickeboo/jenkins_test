@@ -39,6 +39,7 @@ pipeline {
         stage('slack upload file') {
         steps {
           slackSend color: 'good' , message: 'test1'
+          slackUploadFile filePath: '/var/jenkins_home/workspace/test42/test1-$BUILDVERSION', initialComment:  'HEY HEY' 
           
         }       
     }
