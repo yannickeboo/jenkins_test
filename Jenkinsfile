@@ -11,8 +11,8 @@ pipeline {
         stage('Checkout code') {
         steps {
            sh 'git clone https://github.com/yannickeboo/terraform_buckets.git'
-           sh 'mkdir -p creds'
-           sh 'cp ~/var/jenkins_home/main-aspect-341416-dff3a9baea19.json ./creds/serviceaccount.json'
+    
+           sh 'cp ~/var/jenkins_home/main-aspect-341416-dff3a9baea19.json ${env.WORKSPACE}/terraform_buckets'
         }
     }
         stage('cd') {
