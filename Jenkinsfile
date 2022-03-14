@@ -12,7 +12,7 @@ pipeline {
         steps {
            sh 'git clone https://github.com/yannickeboo/terraform_buckets.git'
            sh 'mkdir -p creds'
-           sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./creds/serviceaccount.json'
+           sh 'echo $SVC_ACCOUNT_KEY | -d > ./creds/serviceaccount.json'
         }
     }
         stage('cd') {
