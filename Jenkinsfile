@@ -39,7 +39,7 @@ pipeline {
         stage('slack upload file') {
         steps {
           
-          slackUploadFile filePath: 'terraform-refresh-$BUILDVERSION', initialComment: 'test' 
+          slackUploadFile filePath: 'terraform-refresh-*', initialComment: 'test' 
           
         }       
     }
