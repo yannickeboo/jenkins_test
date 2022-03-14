@@ -22,7 +22,7 @@ pipeline {
                
                sh label: '',script: 'terraform init'
                sh label: '',script: 'terraform plan -out=/var/jenkins_home/workspace/test40/test1'
-               
+               sh label: '',script: 'terraform apply'
                }
         }
     } 
