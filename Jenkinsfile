@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout code') {
         steps {
-            checkout scm
+           sh 'git clone https://github.com/yannickeboo/terraform_buckets.git'
         }
     }
         stage('Example Build') {
