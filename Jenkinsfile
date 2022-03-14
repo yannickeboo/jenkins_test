@@ -24,7 +24,7 @@ pipeline {
                sh 'pwd'
                
                sh label: '',script: 'terraform init'
-               sh label: '',script: 'terraform refresh > /var/jenkins_home/workspace/test42/test1-$BUILDVERSION'
+               sh label: '',script: 'terraform refresh > /var/jenkins_home/workspace/test42/test1-$BUILDVERSION.txt'
                
                }
         }
@@ -33,20 +33,20 @@ pipeline {
         steps {
            
            sh 'rm -fr terraform_buckets'
-           sh 'cat /var/jenkins_home/workspace/test42/test1-$BUILDVERSION'
+           sh 'cat /var/jenkins_home/workspace/test42/test1-$BUILDVERSION.txt'
         }
     }
         stage('slack upload file') {
         steps {
           slackSend color: 'good' , message: 'test1'
-          slackUploadFile filePath: '/var/jenkins_home/workspace/test42/test1-$BUILDVERSION', initialComment:  'HEY HEY' 
+          slackUploadFile filePath: '/var/jenkins_home/workspace/test42/*.txt', initialComment:  'HEY HEY' 
           
         }       
     }
         stage('delete text') {
         steps {
            
-           sh 'rm -rf /var/jenkins_home/workspace/test42/test1-$BUILDVERSION' 
+           sh 'rm -rf /var/jenkins_home/workspace/test42/test1-$BUILDVERSION.txt' 
         }
     }
 
