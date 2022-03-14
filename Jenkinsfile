@@ -30,7 +30,7 @@ pipeline {
         steps {
            
            sh 'rm -fr terraform_buckets'
-           sh 'cat /var/jenkins_home/workspace/test40/test1'
+        
         }
     }
 
