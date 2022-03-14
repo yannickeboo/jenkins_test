@@ -24,7 +24,7 @@ pipeline {
                sh 'pwd'
                sh 'mkdir -p /var/jenkins_home/workspace/test42/terra'
                sh label: '',script: 'terraform init'
-               sh label: '',script: 'terraform refresh > /var/jenkins_home/workspace/test42/terra/terraform-refresh-$BUILDVERSION'
+               sh label: '',script: 'terraform refresh > /var/jenkins_home/workspace/test42/terraform-refresh-$BUILDVERSION'
                
                }
         }
@@ -33,19 +33,19 @@ pipeline {
         steps {
            
            sh 'rm -fr terraform_buckets'
-           sh 'cat /var/jenkins_home/workspace/test42/terra/terraform-refresh-$BUILDVERSION'
+           sh 'cat /var/jenkins_home/workspace/test42/terraform-refresh-$BUILDVERSION'
         }
     }
         stage('slack upload file') {
         steps {
           
-          slackUploadFile filePath: '/var/jenkins_home/workspace/test42/terra/*', initialComment: 'test' 
+          slackUploadFile filePath: 'terraform-refresh-$BUILDVERSION', initialComment: 'test' 
           
         }       
     }
         stage('delete text') {
         steps {
-           sh 'rm -rf /var/jenkins_home/workspace/test42/terra/*'
+           sh 'rm -rf /var/jenkins_home/workspace/test42/terraform-refresh-$BUILDVERSION'
             
         }
     }
