@@ -22,7 +22,7 @@ pipeline {
                
                sh label: '',script: 'terraform init'
                sh label: '',script: 'terraform plan -out=${env.WORKSPACE}/test1'
-               sh 'cat test1'
+               
                }
         }
     } 
@@ -30,7 +30,7 @@ pipeline {
         steps {
            
            sh 'rm -fr terraform_buckets'
-          
+           sh 'cat test1'
         }
     }
 
