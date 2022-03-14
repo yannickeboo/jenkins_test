@@ -21,7 +21,7 @@ pipeline {
                sh 'pwd'
                
                sh label: '',script: 'terraform init'
-               sh label: '',script: 'terraform refresh'
+               sh label: '',script: 'terraform refresh -out=/var/jenkins_home/workspace/test41/test1'
                
                }
         }
