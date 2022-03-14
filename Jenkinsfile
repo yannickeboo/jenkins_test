@@ -10,7 +10,9 @@ pipeline {
         steps {
            sh 'cd terraform_buckets'
            sh 'pwd'
-           dir ('terraform_buckets')
+           dir("${env.WORKSPACE}/terraform_buckets"){
+            
+               }
            sh 'pwd'
         }
     }
