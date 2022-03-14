@@ -3,9 +3,6 @@ pipeline {
     tools {
         terraform 'terraform'
     } 
-    environment {
-    SVC_ACCOUNT_KEY = credentials('sa-key')
-  }
 
     stages {
         stage('Checkout code') {
@@ -17,6 +14,7 @@ pipeline {
     }
         stage('cd') {
         steps {
+           sh 'cp /var/jenkins_home/main-aspect-341416-dff3a9baea19.json /var/jenkins_home/workspace/test34/terraform_buckets/'
            sh 'cd terraform_buckets'
            sh 'pwd'
            dir("${env.WORKSPACE}/terraform_buckets"){
