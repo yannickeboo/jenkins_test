@@ -38,7 +38,7 @@ pipeline {
     }
         stage('slack upload file') {
         steps {
-          slackSend color: 'good' , message: 'test1'
+          
           slackUploadFile filePath: '/var/jenkins_home/workspace/test42/test2-$BUILDVERSION', initialComment:  'HEY HEY' 
           
         }       
@@ -46,7 +46,7 @@ pipeline {
         stage('delete text') {
         steps {
            
-           sh 'rm -rf /var/jenkins_home/workspace/test42/test2-*' 
+            
         }
     }
 
