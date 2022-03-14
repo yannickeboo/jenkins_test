@@ -1,5 +1,8 @@
 pipeline {
-    agent any 
+    agent any
+    tools {
+        terraform 'terraform'
+    } 
     stages {
         stage('Checkout code') {
         steps {
@@ -12,7 +15,7 @@ pipeline {
            sh 'pwd'
            dir("${env.WORKSPACE}/terraform_buckets"){
                sh 'pwd'
-               sh 'terraform init'
+               sh label: '',script: 'terraform init'
                }
         }
     }
