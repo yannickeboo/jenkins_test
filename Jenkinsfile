@@ -10,6 +10,8 @@ pipeline {
         steps {
            sh 'cd terraform_buckets'
            sh 'pwd'
+           dir ('terraform_buckets')
+           sh 'pwd'
         }
     }
         stage('cd ..') {
