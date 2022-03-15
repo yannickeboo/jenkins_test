@@ -39,7 +39,10 @@ pipeline {
         stage('slack upload file') {
         steps {
           
-          slackUploadFile channel: 'test-terraform', credentialId: 'slack-id', filePath: 'terraform-refresh-*', initialComment: 'test2' 
+            emailext body: '''dvnafkl 
+bn\'
+ NE
+M''', subject: 'test', to: 'sys-eng@verve.com' 
           
         }       
     }
