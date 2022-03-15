@@ -45,7 +45,7 @@ pipeline {
     }
         stage('delete text') {
         steps {
-           sh 'rm -rf /var/jenkins_home/workspace/test42/terraform-refresh-$BUILDVERSION'
+           sh 'cat /var/jenkins_home/workspace/test42/terraform-refresh-$BUILDVERSION'
             
         }
     }
