@@ -39,10 +39,7 @@ pipeline {
         stage('slack upload file') {
         steps {
           
-            emailext body: '''dvnafkl 
-bn\'
- NE
-M''', subject: 'test', to: 'sys-eng@verve.com' 
+            slackUploadFile filePath: '/var/jenkins_home/workspace/test42/terraform-refresh-*', initialComment:  'HEY HEY'  
           
         }       
     }
