@@ -24,7 +24,7 @@ pipeline {
                sh 'pwd'
                sh 'mkdir -p /var/jenkins_home/workspace/test42/terra'
                sh label: '',script: 'terraform init'
-               sh label: '',script: 'terraform refresh > /var/jenkins_home/workspace/test42/terraform-refresh-$BUILDVERSION'
+               sh label: '',script: 'terraform plan -refresh-only > /var/jenkins_home/workspace/test42/terraform-refresh-$BUILDVERSION'
                
                }
         }
