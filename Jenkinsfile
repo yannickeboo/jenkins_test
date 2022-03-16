@@ -17,12 +17,12 @@ pipeline {
     }
         stage('cd') {
         steps {
-           sh 'cp /var/jenkins_home/main-aspect-341416-dff3a9baea19.json /var/jenkins_home/workspace/test42/terraform_buckets/'
+           sh 'cp /var/jenkins_home/main-aspect-341416-dff3a9baea19.json /var/jenkins_home/workspace/test45/terraform_buckets/'
            sh 'cd terraform_buckets'
            sh 'pwd'
-           dir("${env.WORKSPACE}/terraform_buckets"){
+           dir("${env.WORKSPACE}/test45/terraform_buckets"){
                sh 'pwd'
-               sh 'mkdir -p /var/jenkins_home/workspace/test42/terra'
+               sh 'mkdir -p /var/jenkins_home/workspace/test45/terra'
                sh label: '',script: 'terraform init'
                sh label: '',script: 'terraform plan -refresh-only > /var/jenkins_home/workspace/test42/terraform-refresh-$BUILDVERSION'
                
@@ -33,7 +33,7 @@ pipeline {
         steps {
            
            sh 'rm -fr terraform_buckets'
-           sh 'cat /var/jenkins_home/workspace/test42/terraform-refresh-$BUILDVERSION'
+           sh 'cat /var/jenkins_home/workspace/test45/terraform-refresh-$BUILDVERSION'
         }
     }
         stage('slack upload file') {
