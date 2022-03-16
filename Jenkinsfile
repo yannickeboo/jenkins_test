@@ -20,7 +20,7 @@ pipeline {
            sh 'cp /var/jenkins_home/main-aspect-341416-dff3a9baea19.json /var/jenkins_home/workspace/test46/terraform_buckets/'
            sh 'cd terraform_buckets'
            sh 'pwd'
-           dir("${env.WORKSPACE}/test45/terraform_buckets"){
+           dir("${env.WORKSPACE}/test46/terraform_buckets"){
                sh 'pwd'
                sh 'mkdir -p /var/jenkins_home/workspaceterra'
                sh label: '',script: 'terraform init'
