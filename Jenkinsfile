@@ -17,14 +17,14 @@ pipeline {
     }
         stage('cd') {
         steps {
-           sh 'cp /var/jenkins_home/main-aspect-341416-dff3a9baea19.json /var/jenkins_home/workspace/test46/terraform_buckets/'
+           sh 'cp /var/jenkins_home/main-aspect-341416-dff3a9baea19.json /var/jenkins_home/workspace/test47/terraform_buckets/'
            sh 'cd terraform_buckets'
            sh 'pwd'
-           dir("${env.WORKSPACE}/test46/terraform_buckets"){
+           dir("${env.WORKSPACE}/terraform_buckets"){
                sh 'pwd'
                sh 'mkdir -p /var/jenkins_home/workspaceterra'
                sh label: '',script: 'terraform init'
-               sh label: '',script: 'terraform plan -refresh-only > /var/jenkins_home/workspace/test46/terraform-refresh-$BUILDVERSION'
+               sh label: '',script: 'terraform plan -refresh-only > /var/jenkins_home/workspace/test47/terraform-refresh-$BUILDVERSION'
                
                }
         }
@@ -33,19 +33,19 @@ pipeline {
         steps {
            
            sh 'rm -fr terraform_buckets'
-           sh 'cat /var/jenkins_home/workspace/test46/terraform-refresh-$BUILDVERSION'
+           sh 'cat /var/jenkins_home/workspace/test47/terraform-refresh-$BUILDVERSION'
         }
     }
         stage('slack upload file') {
         steps {
           
-            slackUploadFile filePath: '/var/jenkins_home/workspace/test42/terraform-refresh-*', initialComment:  'HEY HEY'  
+            slackUploadFile filePath: '/var/jenkins_home/workspace/test47/terraform-refresh-*', initialComment:  'HEY HEY'  
           
         }       
     }
         stage('delete text') {
         steps {
-           sh 'cat /var/jenkins_home/workspace/test42/terraform-refresh-$BUILDVERSION'
+           sh 'cat /var/jenkins_home/workspace/test47/terraform-refresh-$BUILDVERSION'
             
         }
     }
