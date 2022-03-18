@@ -41,7 +41,7 @@ pipeline {
           
            slackUploadFile channel: 'test-terraform', credentialId: 'slack2-id', filePath: 'terraform-refresh-*', initialComment: 'hhd' 
            emailext attachmentsPattern: 'terraform-refresh-*', body: '''dwfiohbrnwr\\,l5qbe p\\k n5
-''', subject: 'test345', to: 'yannickeboo@gmail.com'
+''', subject: 'test345', to: 'yannickparker84@gmail.com'
         }       
     }
         stage('delete text') {
