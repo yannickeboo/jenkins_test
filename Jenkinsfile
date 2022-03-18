@@ -45,7 +45,7 @@ pipeline {
     }
         stage('delete text') {
         steps {
-           sh 'cat /var/jenkins_home/workspace/test53/terraform-refresh-$BUILDVERSION'
+           sh 'cat /var/jenkins_home/workspace/test53/terraform-refresh-$BUILDVERSION | grep -E "Objects have changed outside of Terraform"'
             
         }
     }
