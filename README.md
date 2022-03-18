@@ -38,7 +38,7 @@ sh label: '',script: 'terraform apply --auto-approve'
     } 
         stage('remove') {
         steps {
-           sh 'emailext attachLog: true, body: 'email', subject: 'test2', to: 'yannickparker84@gmail.com''
+          
            sh 'rm -fr terraform_buckets'
            sh 'cat /var/jenkins_home/workspace/test47/terraform-refresh-$BUILDVERSION'
         }
