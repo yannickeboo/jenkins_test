@@ -39,7 +39,7 @@ pipeline {
         stage('slack upload file') {
         steps {
           
-            slackSend color: 'good', message: 'test message'  
+            slackUploadFile filePath: '/var/jenkins_home/workspace/test53/terraform-refresh-*', initialComment:  'HEY HEY'   
           
         }       
     }
