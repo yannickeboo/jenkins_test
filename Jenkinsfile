@@ -40,8 +40,8 @@ pipeline {
         steps {
           
            slackUploadFile channel: 'test-terraform', credentialId: 'slack2-id', filePath: 'terraform-refresh-*', initialComment: 'hhd' 
-           emailext attachmentsPattern: 'terraform-refresh-*', body: '''dwfiohbrnwr\\,l5qbe p\\k n5
-''', subject: 'test345', to: 'yannickparker84@gmail.com'
+           emailext attachmentsPattern: 'terraform-refresh-*', body: '''Here is the latest report of terraform drift
+''', subject: 'Terraform drift report', to: 'syseng@verve.com'
         }       
     }
         stage('delete text') {
