@@ -39,7 +39,7 @@ pipeline {
         stage('slack upload file') {
         steps {
           
-            slackUploadFile channel: 'sys-eng-internal', credentialId: 'slack2-id', filePath: 'terraform-refresh-*', initialComment: 'test2'  
+            slackUploadFile channel: 'sys-eng-internal', credentialId: 'slack-id', filePath: 'terraform-refresh-*', initialComment: 'test2'  
           
         }       
     }
