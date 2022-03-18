@@ -1,8 +1,11 @@
 pipeline {
-  agent { label 'linux'}
-  options {
-    skipDefaultCheckout(true)
-  }
+  agent any
+  tools {
+        terraform 'terraform'
+    } 
+  environment {
+        def BUILDVERSION = sh(returnStdout: true, script: 'date +%Y-%m-%d').trim()
+    }
   stages{
     stage('clean workspace') {
       steps {
