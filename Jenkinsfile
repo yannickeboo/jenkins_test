@@ -23,7 +23,7 @@ pipeline {
            dir("${env.WORKSPACE}/terraform_buckets"){
                sh 'pwd'
                sh 'mkdir -p /var/jenkins_home/workspaceterra'
-               sh label: '',script: 'terraform init'
+               sh label: '',script: 'terraform init  -input=false'
                sh label: '',script: 'terraform plan -refresh-only > /var/jenkins_home/workspace/test53/terraform-refresh-$BUILDVERSION'
                
                }
